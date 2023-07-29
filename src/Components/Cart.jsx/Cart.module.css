@@ -1,0 +1,14 @@
+.cart {
+  display: flex;
+  justify-content: space-evenly;
+  width: 4rem;
+  align-items: center;
+  border: 2px solid wheat;
+  border-radius: 2rem;
+  height: 3rem;
+  padding: 0 5rem;
+  gap: 1rem;
+  color: white;
+  background-color: rgb(82, 26, 26);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+}

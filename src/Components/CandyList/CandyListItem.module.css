@@ -1,0 +1,11 @@
+
+.list {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(88, 88, 116);
+  color: white;
+  max-width: 98%;
+  margin: 1rem;
+
+}

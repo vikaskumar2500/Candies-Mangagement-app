@@ -1,0 +1,16 @@
+.form {
+  background-color: rgb(116, 126, 136);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 5rem; */
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-direction: column;
+  max-width: 20vw;
+  padding: 1rem;
+  border-radius: 14px;
+  margin: 1rem 10vw;
+}

@@ -1,0 +1,16 @@
+
+.add-candy {
+  margin-top: 1.35rem;
+}
+
+.Buy {
+  /* border: 2px solid red; */
+  background-color: rgb(19, 19, 70);
+  color: white;
+  padding: 0.3rem 1rem;
+}
+
+button {
+  border-radius: 15px;
+  padding: 0.3rem 1rem;
+}
