@@ -9,7 +9,7 @@ const App = () => {
   return (
     <React.Fragment>
       <Header />
-      <main>
+      <main className={classes.main}>
         <Form />
         <CandyList />
       </main>

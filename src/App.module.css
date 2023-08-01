@@ -1,11 +1,11 @@
-main {
+.main {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
 @media (max-width:860px) {
-  main {
+  .main {
     justify-content: center;
     flex-direction: column;
     align-items: center;
