@@ -15,27 +15,28 @@ const Form = (props) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     myCtx.addFormData({
-      id:uuidv4(),
-      candyName:enteredCandyNameRef.current.value,
-      candyDesc:enteredDescRef.current.value,
-      price:Number(enteredPriceRef.current.value),
-    })
+      id: uuidv4(),
+      name: enteredCandyNameRef.current.value,
+      desc: enteredDescRef.current.value,
+      price: Number(enteredPriceRef.current.value),
+    });
 
-    enteredCandyNameRef.current.value = '';
-    enteredDescRef.current.value = '';
-    enteredPriceRef.current.value = '';
+    enteredCandyNameRef.current.value = "";
+    enteredDescRef.current.value = "";
+    enteredPriceRef.current.value = "";
   };
 
-  const clickBtnHandler=()=> {}
+  const clickBtnHandler = () => {};
 
   return (
     <form className={classes.form} onSubmit={formSubmitHandler}>
       <Input
         type="text"
         id={uuidv4()}
-        label="Candy Shop"
-        name="candy-shop"
+        label="Candy Name"
+        name="candy-name"
         ref={enteredCandyNameRef}
+        placeholder="Enter candy name..."
       />
       <Input
         type="text"
@@ -43,6 +44,7 @@ const Form = (props) => {
         label="Description"
         name="description"
         ref={enteredDescRef}
+        placeholder="Enter candy desc..."
       />
       <Input
         ref={enteredPriceRef}
@@ -52,8 +54,14 @@ const Form = (props) => {
         name="price"
         min={0.01}
         step={0.01}
+        placeholder="please enter price..."
       />
-      <Button type="submit" label="Add Candy" className="add-candy" onClickBtn={clickBtnHandler} />
+      <Button
+        type="submit"
+        label="Add Candy"
+        className="add-candy"
+        onClickBtn={clickBtnHandler}
+      />
     </form>
   );
 };

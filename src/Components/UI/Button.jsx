@@ -4,10 +4,12 @@ const Button = (props) => {
   const candyClass = props.className;
 
   const submitButtonHandler = () => {
+    // e.preventDefault();
     props.onSubmit();
   };
 
   const clicButtonkHandler=()=> {
+    // e.preventDefault();
     props.onClickBtn();
   }
 

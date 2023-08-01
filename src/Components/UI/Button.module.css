@@ -1,10 +1,14 @@
 
 .add-candy {
   margin-top: 1.35rem;
+  background-color: rgb(44, 38, 38);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  
 }
 
 .Buy {
-  /* border: 2px solid red; */
   background-color: rgb(19, 19, 70);
   color: white;
   padding: 0.3rem 1rem;
@@ -13,4 +17,42 @@
 button {
   border-radius: 15px;
   padding: 0.3rem 1rem;
+  font-weight: 600;
+  border: 1px solid white;
+}
+
+.action1 {
+  border-radius: 10px;
+  gap: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 0.92rem;
+  background-color: rgb(225, 207, 207);
+  border: 1px solid white;
+  box-shadow:0 3px 5px rgba(0, 0, 0, 0.28)
+
+}
+.action2 {
+  border-radius: 10px;
+  gap: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 0.8rem;
+  background-color: rgb(225, 207, 207);
+  border: 1px solid white;
+  box-shadow:0 3px 5px rgba(0, 0, 0, 0.28)
+
+}
+
+.close {
+  color: brown;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+}
+
+.order {
+  background-color: brown;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
 }

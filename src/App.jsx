@@ -1,17 +1,20 @@
+import React from "react";
 import classes from "./App.module.css";
 import CandyList from "./Components/CandyList/CandyList";
+import CartList from "./Components/Cart.jsx/CartList";
 import Form from "./Components/Form/Form";
 import Header from "./Components/Header/Header";
 
 const App = () => {
   return (
-    <div>
+    <React.Fragment>
       <Header />
       <main>
         <Form />
-        <CandyList/>
+        <CandyList />
       </main>
-    </div>
+      <CartList />
+    </React.Fragment>
   );
 };
 

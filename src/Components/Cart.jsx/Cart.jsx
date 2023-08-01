@@ -5,18 +5,20 @@ import MyContext from "../../Store/MyContext";
 const Cart = () => {
   const myCtx = useContext(MyContext);
 
-  console.log(myCtx);
-  // const totalItemCount = myCtx.cartItem.reduce(
-  //   (total, item) => total + item.amount,
-  //   0
-  // );
+  // console.log(myCtx);
+  const totalItemCount = myCtx.cartItem.reduce(
+    (total, item) => total + item.amount,
+    0
+  );
 
-  const cartButtonHandler = () => {};
+  const cartButtonHandler = () => {
+    myCtx.showCartItemHandler(true);
+  };
 
   return (
     <button type="button" className={classes.cart} onClick={cartButtonHandler}>
-      <h3>Cart</h3>
-      <div>{1}</div>
+      <h3>Your Cart</h3>
+      <div>{totalItemCount}</div> 
     </button>
   );
 };

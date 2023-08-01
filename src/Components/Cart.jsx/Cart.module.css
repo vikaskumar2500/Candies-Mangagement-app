@@ -1,14 +1,27 @@
 .cart {
   display: flex;
   justify-content: space-evenly;
-  width: 4rem;
+  width: 13rem;
   align-items: center;
-  border: 2px solid wheat;
   border-radius: 2rem;
   height: 3rem;
-  padding: 0 5rem;
-  gap: 1rem;
+  border: none;
+  /* padding: 0 6rem; */
+  gap: 1.5rem;
   color: white;
   background-color: rgb(82, 26, 26);
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cart>div {
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 1px solid white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50%;
+  background-color: rgb(113, 41, 41);
+}
+
+.cart>h3 {
+  width: 5rem;
 }

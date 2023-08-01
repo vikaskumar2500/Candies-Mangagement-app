@@ -1,0 +1,25 @@
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.total-price > h2 {
+  color: brown;
+}
+
+.cart-items {
+  overflow-y: scroll;
+  max-height: 19rem;
+}
+
+.cart-items::-webkit-scrollbar {
+  overflow: hidden;
+}

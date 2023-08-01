@@ -1,48 +1,47 @@
 import MyContext from "./MyContext";
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
-const defaultCandy = {
-  formData: [],
+let defaultCandy = {
+  formData: [
+    
+  ],
   cartItem: [],
   totalPrice: 0,
 };
 
 const candyReducer = (state, action) => {
+  console.log(state.cartItem);
   if (action.type === "ADD-FORM-DATA") {
     return {
-      formData: [...state.formData, action.data],
+      formData: [action.data, ...state.formData],
+      cartItem: state.cartItem,
+      totalPrice: state.totalPrice,
     };
   } else if (action.type === "ADD-TO-CART") {
     // finding existing items?
-    const cartItemIndex = state.cartItem.findIndex(
+    let cartItemIndex = state.cartItem.findIndex(
       (it) => it.id === action.item.id
     );
-    console.log(cartItemIndex);
     if (cartItemIndex !== -1) {
       state.cartItem[cartItemIndex].amount += action.item.amount;
       return {
+        formData: state.formData,
         cartItem: state.cartItem,
-        totalPrice: (
-          state.totalPrice +
-          state.cartItem[cartItemIndex].price *
-            state.cartItem[cartItemIndex].amount
-        ).toFixed(2),
+        totalPrice: state.totalPrice + action.item.price * action.item.amount,
       };
     } else {
       return {
-        cartItem: [...state.cartItem, action.item],
-        totalPrice: (
-          state.totalPrice +
-          state.cartItem[cartItemIndex].price *
-            state.cartItem[cartItemIndex].amount
-        ).toFixed(2),
+        formData: state.formData,
+        cartItem: [action.item, ...state.cartItem],
+        totalPrice: state.totalPrice + action.item.price * action.item.amount,
       };
     }
   } else if (action.type === "DELETE") {
-    const cartItemIndex = state.cartItem.findIndex(
+    let cartItemIndex = state.cartItem.findIndex(
       (it) => it.id === action.item.id
     );
     return {
+      formData: state.formData,
       cartItem: state.cartItem.filter((it) => it.id !== action.id),
       totalPrice:
         state.totalPrice.toFixed(2) -
@@ -51,11 +50,34 @@ const candyReducer = (state, action) => {
           state.cartItem[cartItemIndex].amount
         ).toFixed(2),
     };
+  } else if (action.type === "DECREASE") {
+    let cartItemIndex = state.cartItem.findIndex(
+      (it) => it.id === action.id
+    );
+    if (state.cartItem[cartItemIndex].amount === 1) {
+      return {
+        formData: state.formData,
+        cartItem: state.cartItem.filter((it) => it.id !== action.id),
+        totalPrice:
+          state.totalPrice.toFixed(2) -
+          state.cartItem[cartItemIndex].price.toFixed(2),
+      };
+    } else {
+      state.cartItem[cartItemIndex].amount -= 1;
+      return {
+        formData: state.formData,
+        cartItem: state.cartItem,
+        totalPrice:
+          state.totalPrice.toFixed(2) -
+          state.cartItem[cartItemIndex].price.toFixed(2),
+      };
+    }
   } else return defaultCandy;
 };
 
 const MyContextProvider = (props) => {
   const [candyState, dispatchCandy] = useReducer(candyReducer, defaultCandy);
+  const [showCartItem, setShowCartItem] = useState(false);
 
   const addFormDataHelper = (data) => {
     dispatchCandy({ type: "ADD-FORM-DATA", data: data });
@@ -69,16 +91,26 @@ const MyContextProvider = (props) => {
     dispatchCandy({ type: "DELETE", id: id });
   };
 
-  console.log(candyState.formData);
+  const showCartItemHandler = (isTrue) => {
+    setShowCartItem(isTrue);
+  };
+
+  const decrCartItemHandler = (id) => {
+    dispatchCandy({ type: "DECREASE", id: id });
+  };
+
   return (
     <MyContext.Provider
       value={{
+        showCartItem: showCartItem,
+        showCartItemHandler: showCartItemHandler,
         formData: candyState.formData,
         addFormData: addFormDataHelper,
         cartItem: candyState.cartItem,
         totalPrice: candyState.totalPrice,
         addCartItem: addCartitemHandler,
         deleteCartItem: deleteCartItemHandler,
+        decrCartItem: decrCartItemHandler,
       }}
     >
       {props.children}

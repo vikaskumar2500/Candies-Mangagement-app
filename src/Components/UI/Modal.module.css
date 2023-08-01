@@ -1,0 +1,36 @@
+.modal-overlay {
+  position: relative;
+  /* border: 3px solid red; */
+  background-color: white;
+  position: relative;
+  max-width: 35vw;
+  border-radius: 15px;
+  margin: -13rem 31%;
+  padding: 1rem 2rem;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  margin-right: 2rem;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+
+
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

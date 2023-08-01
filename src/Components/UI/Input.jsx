@@ -12,6 +12,8 @@ const Input = forwardRef((props, ref) => {
         id={props.id}
         min={props.min}
         step={props.step}
+        placeholder={props.placeholder}
+        required
       />
     </div>
   );
